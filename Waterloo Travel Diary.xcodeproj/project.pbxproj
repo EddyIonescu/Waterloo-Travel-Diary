@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547723D158E5000CAF5F /* AppDelegate.swift */; };
+		64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547923D158E5000CAF5F /* FirstViewController.swift */; };
+		64F6547C23D158E5000CAF5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547B23D158E5000CAF5F /* SecondViewController.swift */; };
+		64F6547F23D158E5000CAF5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F6547D23D158E5000CAF5F /* Main.storyboard */; };
+		64F6548123D158E7000CAF5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64F6548023D158E7000CAF5F /* Assets.xcassets */; };
+		64F6548423D158E7000CAF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F6548223D158E7000CAF5F /* LaunchScreen.storyboard */; };
+		64F6548F23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6548E23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift */; };
+		64F6549A23D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */; };
+		64F654A823D219E4000CAF5F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654A723D219E4000CAF5F /* Location.swift */; };
+		64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654A923D61014000CAF5F /* TripRecorder.swift */; };
+		64F654AC23E0A168000CAF5F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654AB23E0A168000CAF5F /* Storage.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		64F6548B23D158E7000CAF5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64F6546C23D158E5000CAF5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64F6547323D158E5000CAF5F;
+			remoteInfo = "Waterloo Travel Diary";
+		};
+		64F6549623D158E7000CAF5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64F6546C23D158E5000CAF5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64F6547323D158E5000CAF5F;
+			remoteInfo = "Waterloo Travel Diary";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		64F6547423D158E5000CAF5F /* Waterloo Travel Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waterloo Travel Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F6547723D158E5000CAF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		64F6547923D158E5000CAF5F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		64F6547B23D158E5000CAF5F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		64F6547E23D158E5000CAF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64F6548023D158E7000CAF5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64F6548323D158E7000CAF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		64F6548523D158E7000CAF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F6548A23D158E7000CAF5F /* Waterloo Travel DiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterloo Travel DiaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F6548E23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waterloo_Travel_DiaryTests.swift; sourceTree = "<group>"; };
+		64F6549023D158E7000CAF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F6549523D158E7000CAF5F /* Waterloo Travel DiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterloo Travel DiaryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waterloo_Travel_DiaryUITests.swift; sourceTree = "<group>"; };
+		64F6549B23D158E7000CAF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F654A723D219E4000CAF5F /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		64F654A923D61014000CAF5F /* TripRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecorder.swift; sourceTree = "<group>"; };
+		64F654AB23E0A168000CAF5F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64F6547123D158E5000CAF5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6548723D158E7000CAF5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6549223D158E7000CAF5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64F6546B23D158E5000CAF5F = {
+			isa = PBXGroup;
+			children = (
+				64F6547623D158E5000CAF5F /* Waterloo Travel Diary */,
+				64F6548D23D158E7000CAF5F /* Waterloo Travel DiaryTests */,
+				64F6549823D158E7000CAF5F /* Waterloo Travel DiaryUITests */,
+				64F6547523D158E5000CAF5F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64F6547523D158E5000CAF5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64F6547423D158E5000CAF5F /* Waterloo Travel Diary.app */,
+				64F6548A23D158E7000CAF5F /* Waterloo Travel DiaryTests.xctest */,
+				64F6549523D158E7000CAF5F /* Waterloo Travel DiaryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64F6547623D158E5000CAF5F /* Waterloo Travel Diary */ = {
+			isa = PBXGroup;
+			children = (
+				64F6547723D158E5000CAF5F /* AppDelegate.swift */,
+				64F6547923D158E5000CAF5F /* FirstViewController.swift */,
+				64F6547B23D158E5000CAF5F /* SecondViewController.swift */,
+				64F6547D23D158E5000CAF5F /* Main.storyboard */,
+				64F6548023D158E7000CAF5F /* Assets.xcassets */,
+				64F6548223D158E7000CAF5F /* LaunchScreen.storyboard */,
+				64F6548523D158E7000CAF5F /* Info.plist */,
+				64F654A723D219E4000CAF5F /* Location.swift */,
+				64F654A923D61014000CAF5F /* TripRecorder.swift */,
+				64F654AB23E0A168000CAF5F /* Storage.swift */,
+			);
+			path = "Waterloo Travel Diary";
+			sourceTree = "<group>";
+		};
+		64F6548D23D158E7000CAF5F /* Waterloo Travel DiaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				64F6548E23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift */,
+				64F6549023D158E7000CAF5F /* Info.plist */,
+			);
+			path = "Waterloo Travel DiaryTests";
+			sourceTree = "<group>";
+		};
+		64F6549823D158E7000CAF5F /* Waterloo Travel DiaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */,
+				64F6549B23D158E7000CAF5F /* Info.plist */,
+			);
+			path = "Waterloo Travel DiaryUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64F6547323D158E5000CAF5F /* Waterloo Travel Diary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64F6549E23D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel Diary" */;
+			buildPhases = (
+				64F6547023D158E5000CAF5F /* Sources */,
+				64F6547123D158E5000CAF5F /* Frameworks */,
+				64F6547223D158E5000CAF5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Waterloo Travel Diary";
+			productName = "Waterloo Travel Diary";
+			productReference = 64F6547423D158E5000CAF5F /* Waterloo Travel Diary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		64F6548923D158E7000CAF5F /* Waterloo Travel DiaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64F654A123D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryTests" */;
+			buildPhases = (
+				64F6548623D158E7000CAF5F /* Sources */,
+				64F6548723D158E7000CAF5F /* Frameworks */,
+				64F6548823D158E7000CAF5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64F6548C23D158E7000CAF5F /* PBXTargetDependency */,
+			);
+			name = "Waterloo Travel DiaryTests";
+			productName = "Waterloo Travel DiaryTests";
+			productReference = 64F6548A23D158E7000CAF5F /* Waterloo Travel DiaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		64F6549423D158E7000CAF5F /* Waterloo Travel DiaryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64F654A423D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryUITests" */;
+			buildPhases = (
+				64F6549123D158E7000CAF5F /* Sources */,
+				64F6549223D158E7000CAF5F /* Frameworks */,
+				64F6549323D158E7000CAF5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64F6549723D158E7000CAF5F /* PBXTargetDependency */,
+			);
+			name = "Waterloo Travel DiaryUITests";
+			productName = "Waterloo Travel DiaryUITests";
+			productReference = 64F6549523D158E7000CAF5F /* Waterloo Travel DiaryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64F6546C23D158E5000CAF5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Eddy;
+				TargetAttributes = {
+					64F6547323D158E5000CAF5F = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					64F6548923D158E7000CAF5F = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 64F6547323D158E5000CAF5F;
+					};
+					64F6549423D158E7000CAF5F = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 64F6547323D158E5000CAF5F;
+					};
+				};
+			};
+			buildConfigurationList = 64F6546F23D158E5000CAF5F /* Build configuration list for PBXProject "Waterloo Travel Diary" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64F6546B23D158E5000CAF5F;
+			productRefGroup = 64F6547523D158E5000CAF5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64F6547323D158E5000CAF5F /* Waterloo Travel Diary */,
+				64F6548923D158E7000CAF5F /* Waterloo Travel DiaryTests */,
+				64F6549423D158E7000CAF5F /* Waterloo Travel DiaryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64F6547223D158E5000CAF5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64F6548423D158E7000CAF5F /* LaunchScreen.storyboard in Resources */,
+				64F6548123D158E7000CAF5F /* Assets.xcassets in Resources */,
+				64F6547F23D158E5000CAF5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6548823D158E7000CAF5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6549323D158E7000CAF5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64F6547023D158E5000CAF5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64F6547C23D158E5000CAF5F /* SecondViewController.swift in Sources */,
+				64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */,
+				64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */,
+				64F654A823D219E4000CAF5F /* Location.swift in Sources */,
+				64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */,
+				64F654AC23E0A168000CAF5F /* Storage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6548623D158E7000CAF5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64F6548F23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F6549123D158E7000CAF5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64F6549A23D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		64F6548C23D158E7000CAF5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64F6547323D158E5000CAF5F /* Waterloo Travel Diary */;
+			targetProxy = 64F6548B23D158E7000CAF5F /* PBXContainerItemProxy */;
+		};
+		64F6549723D158E7000CAF5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64F6547323D158E5000CAF5F /* Waterloo Travel Diary */;
+			targetProxy = 64F6549623D158E7000CAF5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		64F6547D23D158E5000CAF5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64F6547E23D158E5000CAF5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		64F6548223D158E7000CAF5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64F6548323D158E7000CAF5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		64F6549C23D158E7000CAF5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		64F6549D23D158E7000CAF5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64F6549F23D158E7000CAF5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel Diary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		64F654A023D158E7000CAF5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel Diary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		64F654A223D158E7000CAF5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel DiaryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-DiaryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterloo Travel Diary.app/Waterloo Travel Diary";
+			};
+			name = Debug;
+		};
+		64F654A323D158E7000CAF5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel DiaryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-DiaryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waterloo Travel Diary.app/Waterloo Travel Diary";
+			};
+			name = Release;
+		};
+		64F654A523D158E7000CAF5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel DiaryUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-DiaryUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Waterloo Travel Diary";
+			};
+			name = Debug;
+		};
+		64F654A623D158E7000CAF5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 394WUJ5Q4B;
+				INFOPLIST_FILE = "Waterloo Travel DiaryUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-DiaryUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Waterloo Travel Diary";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64F6546F23D158E5000CAF5F /* Build configuration list for PBXProject "Waterloo Travel Diary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64F6549C23D158E7000CAF5F /* Debug */,
+				64F6549D23D158E7000CAF5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64F6549E23D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel Diary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64F6549F23D158E7000CAF5F /* Debug */,
+				64F654A023D158E7000CAF5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64F654A123D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64F654A223D158E7000CAF5F /* Debug */,
+				64F654A323D158E7000CAF5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64F654A423D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64F654A523D158E7000CAF5F /* Debug */,
+				64F654A623D158E7000CAF5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64F6546C23D158E5000CAF5F /* Project object */;
+}

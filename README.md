@@ -12,10 +12,10 @@ Based on the above trade-off, there are some scenarios where location accuracy c
 
 There are four scenarios, each one using location tracking and motion activity tracking differently as to conserve the user's battery life. There are several functions that are used to determine when to transition from one state to another, and are shown in the state diagram below.
 
-*activelyMoving: 10-metre location accuracy
-*stopped: 100-metre location accuracy
-*notMoving: location services stopped
-*inFastVehicle: 1-km location accuracy
+* activelyMoving: 10-metre location accuracy
+* stopped: 100-metre location accuracy
+* notMoving: location services stopped
+* inFastVehicle: 1-km location accuracy
 Motion activity tracking runs in all states.
 
 

@@ -7,27 +7,36 @@
 //
 
 import UIKit
+import os.log
 
 class FirstViewController: UIViewController {
+    
+    let startTitle = "Start New Trip"
+    let stopTitle = "Stop Recording"
+
     //MARK: Actions
+
     //MARK: Properties
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if (trip.inProgress()) {
+            trip.startTrip() // Resume recording location and adding to existing trip if it exists.
+            startNewTripButton.setTitle(stopTitle, for: .normal)
+        }
     }
     @IBOutlet weak var startNewTripButton: UIButton!
     
     
-    let trip = TripRecorder()
+
     @IBAction func startTrip(_ sender: Any) {
-        print("trip button pressed")
-        if (startNewTripButton.titleLabel!.text == "Stop Recording") {
+        os_log("Trip start/stop button pressed.", log: OSLog.default, type: .info)
+        if (startNewTripButton.titleLabel!.text == stopTitle) {
             trip.stopTrip()
-            startNewTripButton.setTitle("Start New Trip", for: .normal)
+            startNewTripButton.setTitle(startTitle, for: .normal)
         }
         else {
-            trip.startTrip()
-            startNewTripButton.setTitle("Stop Recording", for: .normal)
+            trip.startTrip(view: self)
+            startNewTripButton.setTitle(stopTitle, for: .normal)
         }
     }
     

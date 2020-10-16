@@ -47,7 +47,6 @@ public class Storage {
     ///   - fileName: what to name the file where the struct data will be stored
     static func store<T: Encodable>(_ object: T, to directory: Directory, as fileName: String) {
         let url = getURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
-        
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(object)

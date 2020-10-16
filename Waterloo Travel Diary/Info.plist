@@ -2,14 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Your location is being recorded into your travel survey diary. Thank you for your participation!</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We record your location only during ongoing trip recordings, and require access to your background location as part of the travel survey. Thank you for your participation!</string>
-	<key>NSLocationUsageDescription</key>
-	<string>We record your location only during ongoing trip recordings, and require access to your background location as part of the travel survey. Thank you for your participation!</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We record your location only during ongoing trip recordings, and require that you Always Allow your location as part of the travel survey. Thank you for your participation!</string>
+	<key>NSMotionUsageDescription</key>
+	<string>We use your phone&apos;s motion sensors to detect your mode of transportation and to decrease battery usage.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -26,8 +20,18 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use your location only when you&apos;re recording a trip, and require you Always Allow your location so that we can record your trip while you&apos;re not using your phone.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location only when you&apos;re recording a trip, and require you Always Allow your location so that we can record your trip while you&apos;re not using your phone.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We use your location only when you&apos;re recording a trip. Thank you for your participation!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location only when you&apos;re recording a trip. Thank you for your participation!</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

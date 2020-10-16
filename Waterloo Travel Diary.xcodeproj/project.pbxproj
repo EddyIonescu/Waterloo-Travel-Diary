@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64D688CE251FAFE400244957 /* TripHeuristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D688CD251FAFE400244957 /* TripHeuristics.swift */; };
 		64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547723D158E5000CAF5F /* AppDelegate.swift */; };
 		64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547923D158E5000CAF5F /* FirstViewController.swift */; };
 		64F6547C23D158E5000CAF5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547B23D158E5000CAF5F /* SecondViewController.swift */; };
@@ -15,7 +16,6 @@
 		64F6548423D158E7000CAF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F6548223D158E7000CAF5F /* LaunchScreen.storyboard */; };
 		64F6548F23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6548E23D158E7000CAF5F /* Waterloo_Travel_DiaryTests.swift */; };
 		64F6549A23D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */; };
-		64F654A823D219E4000CAF5F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654A723D219E4000CAF5F /* Location.swift */; };
 		64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654A923D61014000CAF5F /* TripRecorder.swift */; };
 		64F654AC23E0A168000CAF5F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654AB23E0A168000CAF5F /* Storage.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64D688CD251FAFE400244957 /* TripHeuristics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHeuristics.swift; sourceTree = "<group>"; };
 		64F6547423D158E5000CAF5F /* Waterloo Travel Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waterloo Travel Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F6547723D158E5000CAF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64F6547923D158E5000CAF5F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		64F6549523D158E7000CAF5F /* Waterloo Travel DiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Waterloo Travel DiaryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waterloo_Travel_DiaryUITests.swift; sourceTree = "<group>"; };
 		64F6549B23D158E7000CAF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64F654A723D219E4000CAF5F /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		64F654A923D61014000CAF5F /* TripRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecorder.swift; sourceTree = "<group>"; };
 		64F654AB23E0A168000CAF5F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,9 +112,9 @@
 				64F6548023D158E7000CAF5F /* Assets.xcassets */,
 				64F6548223D158E7000CAF5F /* LaunchScreen.storyboard */,
 				64F6548523D158E7000CAF5F /* Info.plist */,
-				64F654A723D219E4000CAF5F /* Location.swift */,
 				64F654A923D61014000CAF5F /* TripRecorder.swift */,
 				64F654AB23E0A168000CAF5F /* Storage.swift */,
+				64D688CD251FAFE400244957 /* TripHeuristics.swift */,
 			);
 			path = "Waterloo Travel Diary";
 			sourceTree = "<group>";
@@ -274,9 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64F6547C23D158E5000CAF5F /* SecondViewController.swift in Sources */,
+				64D688CE251FAFE400244957 /* TripHeuristics.swift in Sources */,
 				64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */,
 				64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */,
-				64F654A823D219E4000CAF5F /* Location.swift in Sources */,
 				64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */,
 				64F654AC23E0A168000CAF5F /* Storage.swift in Sources */,
 			);
@@ -463,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -481,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

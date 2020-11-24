@@ -21,7 +21,7 @@ public class Storage {
     }
     
     /// Returns URL constructed from specified directory
-    static fileprivate func getURL(for directory: Directory) -> URL {
+    static func getURL(for directory: Directory) -> URL {
         var searchPathDirectory: FileManager.SearchPathDirectory
         
         switch directory {

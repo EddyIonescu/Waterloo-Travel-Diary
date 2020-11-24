@@ -78,6 +78,9 @@ class TripHeuristics {
     
     
     var lastAccurateActiveLocation: CLLocation? = nil
+    var recentmostActiveMotionTime: Date? = nil
+    var recentmostStationaryMotionTime: Date? = nil
+    var recentmostInVehicleMotionTime: Date? = nil
     
     // State representing the user's scenario based on motion activity and location tracking.
     enum Scenario {
@@ -95,8 +98,8 @@ class TripHeuristics {
             // In urban areas relies on cell tower and WiFi data, may use GPS if needed but to a lower accuracy.
             return kCLLocationAccuracyHundredMeters
         case .notMoving:
-            return kCLLocationAccuracyKilometer // relies on cell tower and WiFi data, possibly GPS in remote areas.
-        case .movingQuickly:
+            return kCLLocationAccuracyThreeKilometers // relies on cell tower and WiFi data, possibly GPS in remote areas.
+        case .inFastVehicle:
             return kCLLocationAccuracyKilometer // relies on cell tower and WiFi data, possibly GPS in remote areas.
         }
     }
@@ -104,21 +107,46 @@ class TripHeuristics {
     // Implement Transition Functions
     
     func userStationary() -> Bool {
-        // Determine if the user has not been moving for a while.
-        
-        return false
+        /* Determine if the user has not been moving for a while, more specifically has been
+         * stationary for a certain length of time. */
+        if (recentmostStationaryMotionTime == nil) {
+            return false
+        }
+        if (recentmostActiveMotionTime == nil || Int(recentmostStationaryMotionTime!.timeIntervalSince(
+            recentmostActiveMotionTime!)) < defaultStoppedMovingStationaryMinutes*60) {
+            return false
+        }
+        if (recentmostInVehicleMotionTime == nil || Int(recentmostStationaryMotionTime!.timeIntervalSince(
+            recentmostInVehicleMotionTime!)) < defaultStoppedMovingStationaryMinutes*60) {
+            return false
+        }
+        return true
     }
     
     func userMoving() -> Bool {
+        /* Determine if the user has started moving after having been stationary for a while, more
+         * specifically, has been non-stationary at one point in the past few minutes. */
+        // TODO - increase strictness for non-stationary at one point during the last N minutes
+        if (recentmostStationaryMotionTime == nil) {
+            return true
+        }
+        if (recentmostActiveMotionTime != nil && Int(recentmostActiveMotionTime!.timeIntervalSince(
+            recentmostStationaryMotionTime!)) >= defaultStartedMovingMinutes*60) {
+            return true
+        }
+        if (recentmostInVehicleMotionTime != nil && Int(recentmostInVehicleMotionTime!.timeIntervalSince(
+            recentmostStationaryMotionTime!)) >= defaultStartedMovingMinutes*60) {
+            return true
+        }
         return false
     }
     
     func userTravelling() -> Bool {
-        
+        return false
     }
     
     func userNotTravelling() -> Bool {
-        
+        return false
     }
     
     func userInFastVehicle() -> Bool {
@@ -126,7 +154,7 @@ class TripHeuristics {
     }
     
     func userActivelyMoving() -> Bool {
-        
+        return false
     }
 
     // Update State
@@ -135,17 +163,17 @@ class TripHeuristics {
         var newScenario = currentScenario
         if (currentScenario == .activelyMoving) {
             // Implementing #1
-            if (userIsNotMoving()) {
+            if (userStationary()) {
                 newScenario = .notMoving
             }
             // Implementing #2
             if (userInFastVehicle()) {
-                newScenario = .movingQuickly
+                newScenario = .inFastVehicle
             }
         }
         // Revert from #1
         if (currentScenario == .notMoving) {
-            if (userIsMoving()) {
+            if (userMoving()) {
                 newScenario = .stopped
             }
         }
@@ -153,7 +181,7 @@ class TripHeuristics {
             
         }
         // Revert from #2
-        if (currentScenario == .movingQuickly) {
+        if (currentScenario == .inFastVehicle) {
             
         }
     }

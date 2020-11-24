@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64580B892547E4A200760E05 /* TripUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64580B882547E4A200760E05 /* TripUploader.swift */; };
+		64580B8B254B929C00760E05 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64580B8A254B929C00760E05 /* FileUtils.swift */; };
+		647EC667256C9EA200677080 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647EC666256C9EA200677080 /* LoginViewController.swift */; };
 		64D688CE251FAFE400244957 /* TripHeuristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D688CD251FAFE400244957 /* TripHeuristics.swift */; };
 		64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547723D158E5000CAF5F /* AppDelegate.swift */; };
 		64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6547923D158E5000CAF5F /* FirstViewController.swift */; };
@@ -18,6 +21,8 @@
 		64F6549A23D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6549923D158E7000CAF5F /* Waterloo_Travel_DiaryUITests.swift */; };
 		64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654A923D61014000CAF5F /* TripRecorder.swift */; };
 		64F654AC23E0A168000CAF5F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F654AB23E0A168000CAF5F /* Storage.swift */; };
+		73EE4437AD222652FE92D622 /* Pods_Waterloo_Travel_DiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1F21A6F1F1D26040E4D66D /* Pods_Waterloo_Travel_DiaryTests.framework */; };
+		915DCF3A9137FE1B9C561B16 /* Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B6CA037E2918162237A084 /* Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		64843DE725473EA500A84240 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1A1F21A6F1F1D26040E4D66D /* Pods_Waterloo_Travel_DiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waterloo_Travel_DiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BCAC3380BC202B9DCA680C9 /* Pods-Waterloo Travel DiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel DiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel DiaryTests/Pods-Waterloo Travel DiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		484B21CF2495C112122B52DC /* Pods-Waterloo Travel Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel Diary.release.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel Diary/Pods-Waterloo Travel Diary.release.xcconfig"; sourceTree = "<group>"; };
+		6024700349F935716D48A95F /* Pods-Waterloo Travel DiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel DiaryTests.release.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel DiaryTests/Pods-Waterloo Travel DiaryTests.release.xcconfig"; sourceTree = "<group>"; };
+		64580B882547E4A200760E05 /* TripUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripUploader.swift; sourceTree = "<group>"; };
+		64580B8A254B929C00760E05 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		647EC666256C9EA200677080 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		64843DE825474F7C00A84240 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64843DEA25474F7C00A84240 /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64843DEE2547532700A84240 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64843DEF2547532700A84240 /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D688CD251FAFE400244957 /* TripHeuristics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHeuristics.swift; sourceTree = "<group>"; };
 		64F6547423D158E5000CAF5F /* Waterloo Travel Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waterloo Travel Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F6547723D158E5000CAF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +84,12 @@
 		64F6549B23D158E7000CAF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64F654A923D61014000CAF5F /* TripRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecorder.swift; sourceTree = "<group>"; };
 		64F654AB23E0A168000CAF5F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		93301C5EFB2A30C90D7EFFF7 /* Pods_Waterloo_Travel_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waterloo_Travel_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB36AC02BB32C407619CA4DC /* Pods-Waterloo Travel Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel Diary.debug.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel Diary/Pods-Waterloo Travel Diary.debug.xcconfig"; sourceTree = "<group>"; };
+		CD43BAA2F7FE85CF0C0630D7 /* Pods_Waterloo_Travel_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waterloo_Travel_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69DBF5A1AC25F80E673CC93 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.debug.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2B6CA037E2918162237A084 /* Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E825938C07204C39F97F6EB7 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EE4437AD222652FE92D622 /* Pods_Waterloo_Travel_DiaryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +112,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915DCF3A9137FE1B9C561B16 /* Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B5931297F4DA7FDC2C506DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB36AC02BB32C407619CA4DC /* Pods-Waterloo Travel Diary.debug.xcconfig */,
+				484B21CF2495C112122B52DC /* Pods-Waterloo Travel Diary.release.xcconfig */,
+				D69DBF5A1AC25F80E673CC93 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.debug.xcconfig */,
+				E825938C07204C39F97F6EB7 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.release.xcconfig */,
+				1BCAC3380BC202B9DCA680C9 /* Pods-Waterloo Travel DiaryTests.debug.xcconfig */,
+				6024700349F935716D48A95F /* Pods-Waterloo Travel DiaryTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		64580B8725475BAC00760E05 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				93301C5EFB2A30C90D7EFFF7 /* Pods_Waterloo_Travel_Diary.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		64F6546B23D158E5000CAF5F = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +147,9 @@
 				64F6548D23D158E7000CAF5F /* Waterloo Travel DiaryTests */,
 				64F6549823D158E7000CAF5F /* Waterloo Travel DiaryUITests */,
 				64F6547523D158E5000CAF5F /* Products */,
+				0B5931297F4DA7FDC2C506DC /* Pods */,
+				D78598353E1ECC00A83BCF73 /* Frameworks */,
+				64580B8725475BAC00760E05 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +176,9 @@
 				64F654A923D61014000CAF5F /* TripRecorder.swift */,
 				64F654AB23E0A168000CAF5F /* Storage.swift */,
 				64D688CD251FAFE400244957 /* TripHeuristics.swift */,
+				64580B882547E4A200760E05 /* TripUploader.swift */,
+				64580B8A254B929C00760E05 /* FileUtils.swift */,
+				647EC666256C9EA200677080 /* LoginViewController.swift */,
 			);
 			path = "Waterloo Travel Diary";
 			sourceTree = "<group>";
@@ -137,6 +201,20 @@
 			path = "Waterloo Travel DiaryUITests";
 			sourceTree = "<group>";
 		};
+		D78598353E1ECC00A83BCF73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64843DEE2547532700A84240 /* AWSCore.framework */,
+				64843DEF2547532700A84240 /* AWSS3.framework */,
+				64843DE825474F7C00A84240 /* AWSCore.framework */,
+				64843DEA25474F7C00A84240 /* AWSS3.framework */,
+				CD43BAA2F7FE85CF0C0630D7 /* Pods_Waterloo_Travel_Diary.framework */,
+				E2B6CA037E2918162237A084 /* Pods_Waterloo_Travel_Diary_Waterloo_Travel_DiaryUITests.framework */,
+				1A1F21A6F1F1D26040E4D66D /* Pods_Waterloo_Travel_DiaryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64F6549E23D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel Diary" */;
 			buildPhases = (
+				BC17E61596159F087F99192D /* [CP] Check Pods Manifest.lock */,
 				64F6547023D158E5000CAF5F /* Sources */,
 				64F6547123D158E5000CAF5F /* Frameworks */,
 				64F6547223D158E5000CAF5F /* Resources */,
+				64843DE725473EA500A84240 /* Embed Frameworks */,
+				E69D059AF3B3ACAF7D7CEEB5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64F654A123D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryTests" */;
 			buildPhases = (
+				7989476FD6CBC22287C831A7 /* [CP] Check Pods Manifest.lock */,
 				64F6548623D158E7000CAF5F /* Sources */,
 				64F6548723D158E7000CAF5F /* Frameworks */,
 				64F6548823D158E7000CAF5F /* Resources */,
@@ -179,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64F654A423D158E7000CAF5F /* Build configuration list for PBXNativeTarget "Waterloo Travel DiaryUITests" */;
 			buildPhases = (
+				9D911D2686D2B516810E3AC7 /* [CP] Check Pods Manifest.lock */,
 				64F6549123D158E7000CAF5F /* Sources */,
 				64F6549223D158E7000CAF5F /* Frameworks */,
 				64F6549323D158E7000CAF5F /* Resources */,
+				F06D148B24EF71701AD92FA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,17 +352,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7989476FD6CBC22287C831A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Waterloo Travel DiaryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D911D2686D2B516810E3AC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC17E61596159F087F99192D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Waterloo Travel Diary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E69D059AF3B3ACAF7D7CEEB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary/Pods-Waterloo Travel Diary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary/Pods-Waterloo Travel Diary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary/Pods-Waterloo Travel Diary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F06D148B24EF71701AD92FA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests/Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		64F6547023D158E5000CAF5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647EC667256C9EA200677080 /* LoginViewController.swift in Sources */,
 				64F6547C23D158E5000CAF5F /* SecondViewController.swift in Sources */,
 				64D688CE251FAFE400244957 /* TripHeuristics.swift in Sources */,
 				64F654AA23D61014000CAF5F /* TripRecorder.swift in Sources */,
+				64580B8B254B929C00760E05 /* FileUtils.swift in Sources */,
 				64F6547823D158E5000CAF5F /* AppDelegate.swift in Sources */,
 				64F6547A23D158E5000CAF5F /* FirstViewController.swift in Sources */,
 				64F654AC23E0A168000CAF5F /* Storage.swift in Sources */,
+				64580B892547E4A200760E05 /* TripUploader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,15 +641,19 @@
 		};
 		64F6549F23D158E7000CAF5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB36AC02BB32C407619CA4DC /* Pods-Waterloo Travel Diary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 394WUJ5Q4B;
 				INFOPLIST_FILE = "Waterloo Travel Diary/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
+				"PRELINK_LIBS[arch=*]" = Yes;
 				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -469,15 +663,18 @@
 		};
 		64F654A023D158E7000CAF5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484B21CF2495C112122B52DC /* Pods-Waterloo Travel Diary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 394WUJ5Q4B;
 				INFOPLIST_FILE = "Waterloo Travel Diary/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Eddy.Waterloo-Travel-Diary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -487,6 +684,7 @@
 		};
 		64F654A223D158E7000CAF5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BCAC3380BC202B9DCA680C9 /* Pods-Waterloo Travel DiaryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +706,7 @@
 		};
 		64F654A323D158E7000CAF5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6024700349F935716D48A95F /* Pods-Waterloo Travel DiaryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -529,6 +728,7 @@
 		};
 		64F654A523D158E7000CAF5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D69DBF5A1AC25F80E673CC93 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -549,6 +749,7 @@
 		};
 		64F654A623D158E7000CAF5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E825938C07204C39F97F6EB7 /* Pods-Waterloo Travel Diary-Waterloo Travel DiaryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

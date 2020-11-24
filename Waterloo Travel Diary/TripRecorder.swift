@@ -12,6 +12,7 @@ import CoreMotion
 import UIKit
 import os.log
 
+import AWSS3
 
 let trip = TripRecorder()
 
@@ -20,6 +21,8 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let motionActivityManager = CMMotionActivityManager()
     var tripLocations = [CLLocation]()
+    var tripMotions = [CMMotionActivity]()
+    
     var view: UIViewController? = nil
 
     struct TripLocation : Codable {
@@ -33,17 +36,49 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         static let ArchiveURL = DocumentsDirectory.appendingPathComponent("tripLocations")
     }
+    
+    struct TripMotion : Codable {
+        var activity: String
+        var timestamp: Int64
+        
+        static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        static let ArchiveURL = DocumentsDirectory.appendingPathComponent("tripMotions")
+    }
 
     private func saveTripLocations() {
         if let dataToBeArchived = try? NSKeyedArchiver.archivedData(withRootObject: tripLocations, requiringSecureCoding: true) {
             try? dataToBeArchived.write(to: TripLocation.ArchiveURL)
         }
     }
+    
+    private func emptyTripLocations() {
+        tripLocations = []
+        try? FileManager().removeItem(at: TripLocation.ArchiveURL)
+    }
 
     private func loadTripLocations() -> [CLLocation]?  {
         if let archivedData = try? Data(contentsOf: TripLocation.ArchiveURL),
             let tripLocations = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? [CLLocation] {
             return tripLocations
+        }
+        return nil
+    }
+    
+    private func saveTripMotions() {
+        if let dataToBeArchived = try? NSKeyedArchiver.archivedData(withRootObject: tripMotions, requiringSecureCoding: true) {
+            try? dataToBeArchived.write(to: TripMotion.ArchiveURL)
+        }
+    }
+    
+    private func emptyTripMotions() {
+        tripMotions = []
+        try? FileManager().removeItem(at: TripMotion.ArchiveURL)
+    }
+
+    private func loadTripMotions() -> [CMMotionActivity]?  {
+        if let archivedData = try? Data(contentsOf: TripMotion.ArchiveURL),
+            let tripMotions = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? [CMMotionActivity] {
+            return tripMotions
         }
         return nil
     }
@@ -75,18 +110,54 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         return _tripLocations
     }
     
+    func convertToTripMotions(tripMotions: [CMMotionActivity]) -> [TripMotion] {
+        func convertToTripMotion(tripMotion: CMMotionActivity) -> TripMotion {
+            let motionChangeTime = tripMotion.startDate
+            var activityStatus: String = "Unknown"
+            if (tripMotion.automotive) {
+                activityStatus = "Auto"
+            }
+            if (tripMotion.cycling) {
+                activityStatus = "Cycling"
+            }
+            if (tripMotion.running) {
+                activityStatus = "Running"
+            }
+            if (tripMotion.walking) {
+                activityStatus = "Walking"
+            }
+            if (tripMotion.stationary) {
+                activityStatus = "Not moving"
+            }
+            return TripMotion(
+                activity: activityStatus,
+                timestamp: Int64(motionChangeTime.timeIntervalSince1970)
+            )
+        }
+        
+        var _tripMotions = [TripMotion]()
+        for tripMotion in tripMotions {
+            _tripMotions.append(convertToTripMotion(tripMotion: tripMotion))
+        }
+        return _tripMotions
+    }
+    
     func startTrip(view: UIViewController? = nil) {
         if (view != nil) {
             self.view = view!
         }
-        tripLocations = loadTripLocations() ?? [] // Load existing trip in progress if it exists.
+        // Load existing trip in progress if it exists.
+        tripLocations = loadTripLocations() ?? []
+        tripMotions = loadTripMotions() ?? []
+        // Set location tracking settings.
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.desiredAccuracy = CLLocationAccuracy(kCLLocationAccuracyNearestTenMeters)
+        // Hardcode distance filter to 5 metres as to avoid a constant stream of location updates.
         locationManager.distanceFilter = CLLocationDistance(5)
-     //   locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         locationManager.startMonitoringVisits()
         locationManager.showsBackgroundLocationIndicator = true
         if CLLocationManager.significantLocationChangeMonitoringAvailable() {
@@ -106,22 +177,38 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
             locationManager.stopMonitoringSignificantLocationChanges()
         }
         if (CMMotionActivityManager.isActivityAvailable()) {
+            // Works iPhone 5S and up.
             motionActivityManager.stopActivityUpdates()
         }
 
         tripLocations = loadTripLocations() ?? []
+        tripMotions = loadTripMotions() ?? []
         os_log("Stopped Trip.", log: OSLog.default, type: .info)
         if (tripLocations.count > 0) {
+            let userID = TripUploader().getUserID()
             let df = DateFormatter()
-            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            df.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+            let startDateTime = df.string(from: tripLocations.first!.timestamp)
             let currentDateTime = df.string(from: tripLocations.last!.timestamp)
-            // TODO - add in user ID to filename
-            let filename: String = "tripLocations-" + currentDateTime + ".json"
+            let tripLocationPrefix = "tripLocations_" + userID! + "_"
+            let tripMotionPrefix = "tripMotions_" + userID! + "_"
+            let filename: String = startDateTime + "_to_" + currentDateTime + ".json"
             os_log("Saved new trip file %s", log: OSLog.default, type: .info, filename)
-            Storage.store(convertToTripLocations(tripLocations: tripLocations), to: .documents, as: filename)
-            tripLocations = [] // Empty tripLocations after ending a trip.
-            saveTripLocations()
+            Storage.store(
+                convertToTripLocations(tripLocations: tripLocations),
+                to: .documents, as: tripLocationPrefix + filename
+            )
+            if (tripMotions.count > 0) {
+                Storage.store(
+                    convertToTripMotions(tripMotions: tripMotions),
+                    to: .documents, as: tripMotionPrefix + filename
+                )
+            }
+            emptyTripLocations()
+            emptyTripMotions()
         }
+
+        TripUploader().uploadTrips()
     }
     
     func inProgress() -> Bool {
@@ -138,11 +225,15 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         os_log("Trip Location Received, Accuracy: %{public}s", log: OSLog.default, type: .info, String(locations.last!.horizontalAccuracy))
         for location in locations {
-            // TODO - remove cached locations
+            if (location.timestamp.timeIntervalSinceNow > TimeInterval(60)) {
+                // Ignore any locations older than a minute, as they are cached and may not correspond
+                // to the user's actual trip.
+                continue
+            }
             tripLocations.append(location)
         }
         // locationManager.desiredAccuracy = CLLocationAccuracy(kCLLocationAccuracyKilometer)
-        locationManager.desiredAccuracy = tripHeuristics.updateLocationAccuracy(tripLocations.last)
+        // locationManager.desiredAccuracy = tripHeuristics.updateLocationAccuracy(tripLocations.last)
         saveTripLocations()
     }
     
@@ -194,37 +285,15 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
     
     func handleMotionActivity(motionActivity: CMMotionActivity?) {
         if (motionActivity != nil) {
-            let motionChangeTime = motionActivity!.startDate
-            let confidence: String = {
-                switch(motionActivity!.confidence) {
-                case CMMotionActivityConfidence.low:
-                    return "Low"
-                case CMMotionActivityConfidence.medium:
-                    return "Medium"
-                case CMMotionActivityConfidence.high:
-                    return "High"
-                @unknown default:
-                    return "Unknown"
-                }
-            }()
-            if (motionActivity!.automotive) {
-                print("Auto")
-            }
-            if (motionActivity!.cycling) {
-                print("Cycling")
-            }
-            if (motionActivity!.running) {
-                print("Running")
-            }
-            if (motionActivity!.walking) {
-                print("Walking")
-            }
-            if (motionActivity!.stationary) {
-                print("Not moving")
-            }
             if (motionActivity!.unknown) {
-                print("Unknown") // throw this out.
+                return
             }
+            if (motionActivity?.confidence != CMMotionActivityConfidence.high) {
+                return
+            }
+            print(motionActivity!)
+            tripMotions.append(motionActivity!)
+            saveTripMotions()
         }
     }
 }

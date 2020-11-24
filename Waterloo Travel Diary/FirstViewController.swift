@@ -19,17 +19,26 @@ class FirstViewController: UIViewController {
     //MARK: Properties
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if (trip.inProgress()) {
             trip.startTrip() // Resume recording location and adding to existing trip if it exists.
             startNewTripButton.setTitle(stopTitle, for: .normal)
         }
     }
     @IBOutlet weak var startNewTripButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
-    
+
+    @IBAction func showLoginModal(_ sender: Any) {
+        showLogin()
+    }
 
     @IBAction func startTrip(_ sender: Any) {
         os_log("Trip start/stop button pressed.", log: OSLog.default, type: .info)
+        if (loginIsNeeded()) {
+            showLogin()
+            return
+        }
         if (startNewTripButton.titleLabel!.text == stopTitle) {
             trip.stopTrip()
             startNewTripButton.setTitle(startTitle, for: .normal)
@@ -40,5 +49,15 @@ class FirstViewController: UIViewController {
         }
     }
     
+    func loginIsNeeded() -> Bool {
+        let userDefaults = UserDefaults.standard
+        return userDefaults.string(forKey: "email") == nil
+    }
+    
+    func showLogin() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginController = storyboard.instantiateViewController(identifier: "LoginViewController")
+        present(loginController, animated: true, completion: nil)
+    }
 }
 

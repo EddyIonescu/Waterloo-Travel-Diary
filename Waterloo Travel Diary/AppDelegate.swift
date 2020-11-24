@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import os.log
+import AWSCore
+import AWSCognito
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -23,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             os_log("Did finish launching - background location update.", log: OSLog.default, type: .info)
             trip.startTrip()
         }
+        // Upload trips if necessary, such as if the uploads didn't finish in the previous session.
+        TripUploader().uploadTrips()
         return true
     }
 
@@ -47,7 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

@@ -15,7 +15,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         loadMaps()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidAppear(true)
@@ -24,12 +24,12 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
     }
     
     var createdViews: [UIView] = []
-    
+
     func loadMaps() {
         for subView in createdViews {
             subView.removeFromSuperview()
         }
-        let tripPaths = self.getTripFiles()
+        let tripPaths = getTripFiles(tripLocationsOnly: true)
         var mapNum = 0
         for tripPath in tripPaths {
             makeMapView(mapNum: mapNum, numMaps: tripPaths.count, tripPath: tripPath)
@@ -63,6 +63,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
         mapLabelViewText += format.string(from: startDateTime)
         
         mapLabelView.text = mapLabelViewText
+        mapLabelView.textColor = UIColor.white
         return mapLabelView
     }
 
@@ -76,7 +77,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
         mapView.isRotateEnabled = false
 
         let startPadding:CGFloat = 300
-        let heightPadding:CGFloat = 100
+        let heightPadding:CGFloat = 50
         let mapHeight:CGFloat = 300
         let mapLabelHeight:CGFloat = 60
         let mapTotalHeight:CGFloat = mapHeight + heightPadding + mapLabelHeight
@@ -92,7 +93,14 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
 
         // Add the trip
         let trip = getTrip(tripPath: tripPath)
-        let line = getTripLine(trip: trip)
+        let accurateTripLocations = trip.filter({
+            (tripLocation: TripRecorder.TripLocation) -> Bool in return
+                tripLocation.accuracy <= 25.0
+        })
+        if (accurateTripLocations.isEmpty) {
+            return
+        }
+        let line = getTripLine(trip: accurateTripLocations)
         zoomToPolyLine(mapView: mapView, polyLine: line)
         mapView.addOverlay(line)
 
@@ -130,40 +138,6 @@ class SecondViewController: UIViewController, MKMapViewDelegate {
         let coordinates = TripRecorder.convertToMapCoordinate(tripLocations: trip)
         let line = MKPolyline(coordinates: coordinates, count: coordinates.count)
         return line
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-    
-    func getTripFiles() -> [String] {
-        var tripPaths = [String]()
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        do {
-            let tripURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            for tripURL in tripURLs {
-                if (tripURL.lastPathComponent.contains(".json")) {
-                    tripPaths.append(tripURL.lastPathComponent)
-                }
-            }
-        } catch {
-            os_log("Error while enumerating files %s",
-                log: OSLog.default, type: .error, "\(documentsURL.path): \(error.localizedDescription)")
-        }
-        tripPaths.sort(by: >)
-        return tripPaths
-    }
-    
-    func getTrip(tripPath: String) -> [TripRecorder.TripLocation] {
-        let storedTrip = Storage.retrieve(
-            tripPath,
-            from: .documents,
-            as: [TripRecorder.TripLocation].self
-        )
-        return storedTrip
     }
 }
 

@@ -1,7 +1,10 @@
 # Waterloo-Travel-Diary
 Travel Diary iOS App for the Waterloo Public Transit Institute. It uses a write-only S3 bucket for storing the data obtained. It also allows customizing the thresholds used to transitions between different states as to preserve battery life, with a greater amount of flexibility given than any other background location tracking library out there.
 
-[![](http://img.youtube.com/vi/sF-S33bOrs0/0.jpg)](http://www.youtube.com/watch?v=sF-S33bOrs0 "Travel Diary Screenshot")
+<img src="https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/start_recording_screen.png" width="40%">
+<img src="https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/email_screen.png" width="40%">
+<img src="https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/stop_recording_screen.png" width="40%">
+<img src="https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/trips_screen.png" width="40%">
 
 
 # How it works
@@ -20,7 +23,7 @@ There are four scenarios, each one using location tracking and motion activity t
 Motion activity tracking runs in all states. Note that location tracking can't be entirely stopped as it then it can no longer be restarted (unless the Region Monitoring service is used, which has an accuracy of at least 2km and may take a while to invoke).
 
 
-![](https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/Waterloo%20Travel%20Diary-2.png)
+![](https://github.com/EddyIonescu/Waterloo-Travel-Diary/blob/master/Waterloo%20Travel%20Diary-3.png)
 
 
 # Configuration

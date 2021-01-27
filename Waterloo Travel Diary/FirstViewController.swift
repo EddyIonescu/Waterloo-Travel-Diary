@@ -19,6 +19,7 @@ class FirstViewController: UIViewController {
     //MARK: Properties
     override func viewDidLoad() {
         super.viewDidLoad()
+        trip.setUpdateStateTextCallback(callback: setStateTextField)
         
         if (trip.inProgress()) {
             trip.startTrip() // Resume recording location and adding to existing trip if it exists.
@@ -27,10 +28,26 @@ class FirstViewController: UIViewController {
     }
     @IBOutlet weak var startNewTripButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var batteryEfficientSwitch: UISwitch!
+    @IBOutlet weak var state: UITextField!
+    func setStateTextField(scenario: String?) {
+        if scenario == nil {
+            state.text = ""
+            return
+        }
+        state.text = scenario
+    }
+    
     
 
     @IBAction func showLoginModal(_ sender: Any) {
         showLogin()
+    }
+
+    @IBAction func toggleBatteryEfficientMode(_ sender: Any) {
+        let batteryEfficientMode = batteryEfficientSwitch.isOn
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(batteryEfficientMode, forKey: "batteryEfficientMode")
     }
 
     @IBAction func startTrip(_ sender: Any) {

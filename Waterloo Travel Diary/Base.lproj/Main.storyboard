@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -67,26 +67,70 @@ you're recording a trip.</string>
                                     <action selector="showLoginModal:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bOh-J7-nMO"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="batteryEfficientMode" translatesAutoresizingMaskIntoConstraints="NO" id="Ina-Ix-df2">
+                                <rect key="frame" x="345" y="683" width="51" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="toggleBatteryEfficientMode:" destination="9pv-A4-QxB" eventType="valueChanged" id="COs-ha-nQn"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Battery Efficient Mode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yz-2C-Q1J">
+                                <rect key="frame" x="20" y="681" width="188" height="34"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="b4R-Rp-i11"/>
+                                    <constraint firstAttribute="height" constant="34" id="cad-E4-1l2"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-wY-xgS" userLabel="state">
+                                <rect key="frame" x="20" y="639" width="238" height="38.5"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38.5" id="Jvf-W1-LaP"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
+                            <constraint firstItem="dcL-wY-xgS" firstAttribute="leading" secondItem="8Yz-2C-Q1J" secondAttribute="leading" id="3aS-fa-WfY"/>
                             <constraint firstItem="luR-Ht-aZg" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="8RN-yP-1md"/>
                             <constraint firstItem="9Xo-bC-vb0" firstAttribute="top" secondItem="NIW-eH-I0h" secondAttribute="bottom" constant="36" id="ANY-li-9Kk"/>
                             <constraint firstItem="NIW-eH-I0h" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="KlD-EP-uvW"/>
+                            <constraint firstItem="8Yz-2C-Q1J" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Lcg-4E-m96"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Xo-bC-vb0" secondAttribute="trailing" constant="70.30518518518636" id="M02-qu-IgW"/>
                             <constraint firstItem="9Xo-bC-vb0" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="67.694814814813981" id="Pd8-tN-Rpe"/>
+                            <constraint firstItem="8Yz-2C-Q1J" firstAttribute="top" secondItem="dcL-wY-xgS" secondAttribute="bottom" constant="3.5" id="RtL-BL-fSF"/>
+                            <constraint firstItem="8Yz-2C-Q1J" firstAttribute="bottom" secondItem="Ina-Ix-df2" secondAttribute="bottom" constant="1" id="TNL-5r-oSE"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Xo-bC-vb0" secondAttribute="bottom" constant="280.86074074074941" id="e93-EW-uZc"/>
                             <constraint firstItem="NIW-eH-I0h" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="128.99999999999989" id="eda-FF-Dde"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Ina-Ix-df2" secondAttribute="trailing" constant="20" id="ehs-PP-vjc"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="dcL-wY-xgS" secondAttribute="trailing" constant="156" id="g2x-m1-Bdj"/>
                             <constraint firstItem="luR-Ht-aZg" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="i4m-lb-byb"/>
+                            <constraint firstItem="luR-Ht-aZg" firstAttribute="top" secondItem="8Yz-2C-Q1J" secondAttribute="bottom" constant="25" id="pcK-g8-cxX"/>
                             <constraint firstItem="luR-Ht-aZg" firstAttribute="centerX" secondItem="NIW-eH-I0h" secondAttribute="centerX" id="wl6-IU-faw"/>
                             <constraint firstItem="9Xo-bC-vb0" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="xsZ-PK-0PL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trip" image="playpause" catalog="system" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="batteryEfficientSwitch" destination="Ina-Ix-df2" id="ss6-uZ-zKb"/>
                         <outlet property="loginButton" destination="luR-Ht-aZg" id="f3t-6v-7F0"/>
                         <outlet property="startNewTripButton" destination="9Xo-bC-vb0" id="Ky4-qI-22k"/>
+                        <outlet property="state" destination="dcL-wY-xgS" id="r4d-fp-fl7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

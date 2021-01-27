@@ -22,6 +22,8 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
     let motionActivityManager = CMMotionActivityManager()
     var tripLocations = [CLLocation]()
     var tripMotions = [CMMotionActivity]()
+    var tripHeuristics = TripHeuristics()
+    var updateStateText: ((String?) -> Void)? = nil
     
     var view: UIViewController? = nil
 
@@ -149,17 +151,18 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         // Load existing trip in progress if it exists.
         tripLocations = loadTripLocations() ?? []
         tripMotions = loadTripMotions() ?? []
+        // Reset Trip Heuristics as to start from default state settings.
+        tripHeuristics = TripHeuristics()
         // Set location tracking settings.
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.desiredAccuracy = CLLocationAccuracy(kCLLocationAccuracyNearestTenMeters)
         // Hardcode distance filter to 5 metres as to avoid a constant stream of location updates.
-        locationManager.distanceFilter = CLLocationDistance(5)
+        // locationManager.distanceFilter = CLLocationDistance(2)
         locationManager.startUpdatingLocation()
         locationManager.startMonitoringVisits()
-        locationManager.showsBackgroundLocationIndicator = true
+        locationManager.showsBackgroundLocationIndicator = false
         if CLLocationManager.significantLocationChangeMonitoringAvailable() {
             locationManager.startMonitoringSignificantLocationChanges()
         }
@@ -184,6 +187,9 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         tripLocations = loadTripLocations() ?? []
         tripMotions = loadTripMotions() ?? []
         os_log("Stopped Trip.", log: OSLog.default, type: .info)
+        if self.updateStateText != nil {
+            self.updateStateText!(nil)
+        }
         if (tripLocations.count > 0) {
             let userID = TripUploader().getUserID()
             let df = DateFormatter()
@@ -222,6 +228,30 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         self.view!.present(alertController, animated: true, completion: nil)
     }
     
+    public func setUpdateStateTextCallback(callback: @escaping (String?) -> Void) {
+        self.updateStateText = callback
+    }
+    
+    func updateAccuracy() {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "batteryEfficientMode") {
+            let (newAccuracy, scenarioDescription) = tripHeuristics.updateLocationAccuracy(
+                recentmostLocation: tripLocations.last,
+                recentmostMotionActivity: tripMotions.last
+            )
+            print(scenarioDescription)
+            if self.updateStateText != nil {
+                self.updateStateText!(scenarioDescription)
+            }
+            locationManager.desiredAccuracy = newAccuracy
+            return
+        }
+        if self.updateStateText != nil {
+            self.updateStateText!(nil)
+        }
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         os_log("Trip Location Received, Accuracy: %{public}s", log: OSLog.default, type: .info, String(locations.last!.horizontalAccuracy))
         for location in locations {
@@ -232,30 +262,19 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
             }
             tripLocations.append(location)
         }
-        // locationManager.desiredAccuracy = CLLocationAccuracy(kCLLocationAccuracyKilometer)
-        // locationManager.desiredAccuracy = tripHeuristics.updateLocationAccuracy(tripLocations.last)
+        updateAccuracy()
         saveTripLocations()
+        if CLLocationManager.deferredLocationUpdatesAvailable() {
+            // Defer next location update to either 15 seconds or 10 metres.
+            // Deprecated since iOS 13.0, might be useful for older phones.
+            let distance = CLLocationDistance(10)
+            let time = TimeInterval(15)
+            locationManager.allowDeferredLocationUpdates(untilTraveled: distance, timeout:time)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         os_log("Received a visit.", log: OSLog.default, type: .info)
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let error = error as? CLError, error.code == .denied {
-            // Location updates are not authorized.
-            print(error)
-            print("Location not authorized")
-            locationManager.stopUpdatingLocation()
-            locationManager.stopMonitoringVisits()
-            userMessage(
-                message: "Open Settings, navigate to Waterloo Travel Diary, then change the location setting to Always Allow.",
-                title: "Your Background Location is required")
-            
-        }
-        print("Sorry, there was a location error")
-        print(error)
-        // Notify the user of any errors.
     }
     
     // called when the authorization status is changed for the core location permission
@@ -266,6 +285,7 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
         switch status {
             case .authorizedAlways:
                 os_log("Set to Always Authorized.", log: OSLog.default, type: .info)
+                startTrip()
             case .authorizedWhenInUse:
                 os_log("Set to When In Use.", log: OSLog.default, type: .info)
                 locationManager.requestAlwaysAuthorization()
@@ -293,6 +313,10 @@ class TripRecorder: NSObject, CLLocationManagerDelegate {
             }
             print(motionActivity!)
             tripMotions.append(motionActivity!)
+
+            // Update location accuracy based on motion events as well, as location events may be infrequent.
+            updateAccuracy()
+            
             saveTripMotions()
         }
     }
